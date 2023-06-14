@@ -1,8 +1,9 @@
-import { unified } from "unified";
-import remarkImageSize from "../src";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
+import rehypeStringify from 'rehype-stringify';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
+
+import remarkImageSize from '../src';
 
 const processor = unified()
   .use(remarkParse)
@@ -12,8 +13,8 @@ const processor = unified()
 
 const getImage = (w: number, h: number) => `https://placehold.co/${w}x${h}`;
 
-describe("remarkImageSize", () => {
-  it("should add width and height to single image node", async () => {
+describe('remarkImageSize', () => {
+  it('should add width and height to single image node', async () => {
     const IMAGE = { w: 100, h: 200 };
     const markdown = `![alt text](${getImage(IMAGE.w, IMAGE.h)})`;
     const result = await processor.process(markdown);
@@ -23,7 +24,7 @@ describe("remarkImageSize", () => {
     expect(html).toContain(`height="${IMAGE.h}"`);
   });
 
-  it("should add width and height to multiple image nodes", async () => {
+  it('should add width and height to multiple image nodes', async () => {
     const IMAGE_1 = { w: 100, h: 200 };
     const IMAGE_2 = { w: 300, h: 400 };
     const markdown = `
