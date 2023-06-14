@@ -27,6 +27,10 @@
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0"
   },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
   "exports": {
     ".": {
       "import": "./dist/remark-image-size.es.js",
