@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import", "unused-imports"],
+  "rules": {
+    "unused-imports/no-unused-imports": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "pathGroups": []
+      }
+    ],
+    "import/no-duplicates": "error"
+  },
+  "ignorePatterns": ["node_modules/", "dist/", ".turbo/", "reports/"]
+}

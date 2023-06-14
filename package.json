@@ -5,7 +5,20 @@
   "scripts": {
     "test": "turbo test",
     "build": "turbo build",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "format": "prettier --write '**/*.{json,js,jsx,ts,tsx,html,css}'",
+    "format:check": "prettier --check '**/*.{json,js,jsx,ts,tsx,html,css}'",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{json,js,jsx,ts,tsx,html,css}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
