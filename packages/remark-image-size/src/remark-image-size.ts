@@ -1,8 +1,9 @@
-import { Node, Parent } from "unist";
-import { visit } from "unist-util-visit";
-import { Plugin, Transformer } from "unified";
-import type { Image } from "mdast";
-import probe from "probe-image-size";
+import probe from 'probe-image-size';
+import { Plugin, Transformer } from 'unified';
+import { Node, Parent } from 'unist';
+import { visit } from 'unist-util-visit';
+
+import type { Image } from 'mdast';
 
 export const remarkImageSize: Plugin = (): Transformer => {
   return async (tree: Node) => {
@@ -23,7 +24,7 @@ export const remarkImageSize: Plugin = (): Transformer => {
         });
       }
     };
-    visit(tree, "image", visitor);
+    visit(tree, 'image', visitor);
     await Promise.all(fetchers.map((fetcher) => fetcher()));
   };
 };
