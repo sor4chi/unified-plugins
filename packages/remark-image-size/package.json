@@ -1,0 +1,37 @@
+{
+  "name": "remark-image-size",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest --run"
+  },
+  "keywords": [
+    "remark",
+    "markdown"
+  ],
+  "author": "sor4chi",
+  "license": "MIT",
+  "dependencies": {
+    "mdast": "^3.0.0",
+    "probe-image-size": "^7.2.3",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/hast": "^2.3.4",
+    "@types/mdast": "^3.0.11",
+    "@types/prettier": "^2.7.3",
+    "@types/probe-image-size": "^7.2.0",
+    "@types/unist": "^2.0.6",
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "^10.0.2",
+    "remark-rehype": "^10.1.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/remark-image-size.es.js",
+      "require": "./dist/remark-image-size.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}
