@@ -1,15 +1,18 @@
-import { Node, Parent } from "unist";
-import { visit } from "unist-util-visit";
-import { Plugin, Transformer } from "unified";
-import type { Link } from "mdast";
-import { parse } from "node-html-parser";
+import { parse } from 'node-html-parser';
+import { Plugin, Transformer } from 'unified';
+import { Node, Parent } from 'unist';
+import { visit } from 'unist-util-visit';
+
 import {
   getDescriptionFromElement,
   getIconUrlFromElement,
   getThumbnailUrlFromElement,
   getTitleFromElement,
-} from "./meta-parser";
-import { LinkMeta, RemarkLinkMetaOptions } from ".";
+} from './meta-parser';
+
+import { LinkMeta, RemarkLinkMetaOptions } from '.';
+
+import type { Link } from 'mdast';
 
 const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
   const res = await fetch(url);
@@ -25,7 +28,7 @@ const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
 };
 
 export const remarkLinkMeta: Plugin = (
-  options: RemarkLinkMetaOptions = {}
+  options: RemarkLinkMetaOptions = {},
 ): Transformer => {
   return async (tree: Node) => {
     const fetchers: (() => Promise<void>)[] = [];
@@ -33,7 +36,7 @@ export const remarkLinkMeta: Plugin = (
       // if inline link and inline option is false, skip
       if (
         !options.inline &&
-        parent?.type === "paragraph" &&
+        parent?.type === 'paragraph' &&
         parent.children.length > 1
       )
         return;
@@ -50,7 +53,7 @@ export const remarkLinkMeta: Plugin = (
         });
       }
     };
-    visit(tree, "link", visitor);
+    visit(tree, 'link', visitor);
     await Promise.all(fetchers.map((fetcher) => fetcher()));
   };
 };

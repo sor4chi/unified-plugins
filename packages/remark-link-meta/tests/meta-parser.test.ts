@@ -1,13 +1,14 @@
+import { parse } from 'node-html-parser';
+
 import {
   getTitleFromElement,
   getDescriptionFromElement,
   getIconUrlFromElement,
   getThumbnailUrlFromElement,
-} from "../src/meta-parser";
-import { parse } from "node-html-parser";
+} from '../src/meta-parser';
 
-describe("getTitleFromElement", () => {
-  it("returns the og:title content if it exists", () => {
+describe('getTitleFromElement', () => {
+  it('returns the og:title content if it exists', () => {
     const el = parse(`
       <html>
         <head>
@@ -15,10 +16,10 @@ describe("getTitleFromElement", () => {
         </head>
       </html>
     `);
-    expect(getTitleFromElement(el)).toBe("Example: Home");
+    expect(getTitleFromElement(el)).toBe('Example: Home');
   });
 
-  it("returns the twitter:title content if og:title does not exist", () => {
+  it('returns the twitter:title content if og:title does not exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -26,10 +27,10 @@ describe("getTitleFromElement", () => {
         </head>
       </html>
     `);
-    expect(getTitleFromElement(el)).toBe("Example: Home");
+    expect(getTitleFromElement(el)).toBe('Example: Home');
   });
 
-  it("returns the text content of the title element if neither og:title nor twitter:title exist", () => {
+  it('returns the text content of the title element if neither og:title nor twitter:title exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -37,10 +38,10 @@ describe("getTitleFromElement", () => {
         </head>
       </html>
     `);
-    expect(getTitleFromElement(el)).toBe("Example: Home");
+    expect(getTitleFromElement(el)).toBe('Example: Home');
   });
 
-  it("returns undefined if none of the title elements exist", () => {
+  it('returns undefined if none of the title elements exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -51,8 +52,8 @@ describe("getTitleFromElement", () => {
   });
 });
 
-describe("getDescriptionFromElement", () => {
-  it("returns the og:description content if it exists", () => {
+describe('getDescriptionFromElement', () => {
+  it('returns the og:description content if it exists', () => {
     const el = parse(`
       <html>
         <head>
@@ -61,11 +62,11 @@ describe("getDescriptionFromElement", () => {
       </html>
     `);
     expect(getDescriptionFromElement(el)).toBe(
-      "Artificial intelligence research lab and business"
+      'Artificial intelligence research lab and business',
     );
   });
 
-  it("returns the twitter:description content if og:description does not exist", () => {
+  it('returns the twitter:description content if og:description does not exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -74,11 +75,11 @@ describe("getDescriptionFromElement", () => {
       </html>
     `);
     expect(getDescriptionFromElement(el)).toBe(
-      "Artificial intelligence research lab and business"
+      'Artificial intelligence research lab and business',
     );
   });
 
-  it("returns the description content if neither og:description nor twitter:description exist", () => {
+  it('returns the description content if neither og:description nor twitter:description exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -87,11 +88,11 @@ describe("getDescriptionFromElement", () => {
       </html>
     `);
     expect(getDescriptionFromElement(el)).toBe(
-      "Artificial intelligence research lab and business"
+      'Artificial intelligence research lab and business',
     );
   });
 
-  it("returns undefined if none of the description elements exist", () => {
+  it('returns undefined if none of the description elements exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -102,7 +103,7 @@ describe("getDescriptionFromElement", () => {
   });
 });
 
-describe("getIconUrlFromElement", () => {
+describe('getIconUrlFromElement', () => {
   it('returns the href of the link rel="icon" element if it exists', () => {
     const el = parse(`
       <html>
@@ -112,7 +113,7 @@ describe("getIconUrlFromElement", () => {
       </html>
     `);
     expect(getIconUrlFromElement(el)).toBe(
-      "https://example.com/static/images/favicon.ico"
+      'https://example.com/static/images/favicon.ico',
     );
   });
 
@@ -125,7 +126,7 @@ describe("getIconUrlFromElement", () => {
       </html>
     `);
     expect(getIconUrlFromElement(el)).toBe(
-      "https://example.com/static/images/favicon.ico"
+      'https://example.com/static/images/favicon.ico',
     );
   });
 
@@ -138,11 +139,11 @@ describe("getIconUrlFromElement", () => {
       </html>
     `);
     expect(getIconUrlFromElement(el)).toBe(
-      "https://example.com/static/images/favicon.ico"
+      'https://example.com/static/images/favicon.ico',
     );
   });
 
-  it("returns undefined if none of the icon elements exist", () => {
+  it('returns undefined if none of the icon elements exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -153,8 +154,8 @@ describe("getIconUrlFromElement", () => {
   });
 });
 
-describe("getThumbnailUrlFromElement", () => {
-  it("returns the content of the og:image element if it exists", () => {
+describe('getThumbnailUrlFromElement', () => {
+  it('returns the content of the og:image element if it exists', () => {
     const el = parse(`
       <html>
         <head>
@@ -163,11 +164,11 @@ describe("getThumbnailUrlFromElement", () => {
       </html>
     `);
     expect(getThumbnailUrlFromElement(el)).toBe(
-      "https://example.com/static/images/share.png"
+      'https://example.com/static/images/share.png',
     );
   });
 
-  it("returns the content of the twitter:image element if og:image does not exist", () => {
+  it('returns the content of the twitter:image element if og:image does not exist', () => {
     const el = parse(`
       <html>
         <head>
@@ -176,11 +177,11 @@ describe("getThumbnailUrlFromElement", () => {
       </html>
     `);
     expect(getThumbnailUrlFromElement(el)).toBe(
-      "https://example.com/static/images/share.png"
+      'https://example.com/static/images/share.png',
     );
   });
 
-  it("returns undefined if neither og:image nor twitter:image exist", () => {
+  it('returns undefined if neither og:image nor twitter:image exist', () => {
     const el = parse(`
       <html>
         <head>

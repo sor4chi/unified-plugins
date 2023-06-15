@@ -1,10 +1,11 @@
-import { unified } from "unified";
-import remarkLinkMeta, { RemarkLinkMetaOptions } from "../src";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import rehypeStringify from 'rehype-stringify';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
+
+import remarkLinkMeta, { RemarkLinkMetaOptions } from '../src';
 
 const getProcessor = (options?: RemarkLinkMetaOptions) =>
   unified()
@@ -13,19 +14,19 @@ const getProcessor = (options?: RemarkLinkMetaOptions) =>
     .use(remarkRehype)
     .use(rehypeStringify);
 
-const TEST_SITE_URL = "https://example.com";
-const TEST_SITE_TITLE = "Test Site For Sor4chi Unified Plugins";
+const TEST_SITE_URL = 'https://example.com';
+const TEST_SITE_TITLE = 'Test Site For Sor4chi Unified Plugins';
 const TEST_SITE_DESCRIPTION =
-  "This is a test site for Sor4chi unified plugins. This site is used for testing purposes only.";
-const TEST_SITE_ICON_URL = "https://example.com/statics/images/favicon.ico";
+  'This is a test site for Sor4chi unified plugins. This site is used for testing purposes only.';
+const TEST_SITE_ICON_URL = 'https://example.com/statics/images/favicon.ico';
 const TEST_SITE_THUMBNAIL_URL =
-  "https://example.com/statics/images/thumbnail.png";
+  'https://example.com/statics/images/thumbnail.png';
 
-describe("remarkLinkMeta", () => {
+describe('remarkLinkMeta', () => {
   const server = setupServer(
     rest.get(TEST_SITE_URL, (_, res, ctx) => {
       return res(
-        ctx.set("Content-Type", "text/html"),
+        ctx.set('Content-Type', 'text/html'),
         ctx.body(`
 <!DOCTYPE html>
 <html lang="en">
@@ -41,16 +42,16 @@ describe("remarkLinkMeta", () => {
   <h1>Hello World!</h1>
 </body>
 </html>
-`)
+`),
       );
-    })
+    }),
   );
 
   beforeAll(() => server.listen());
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  test("adds metadata to link nodes", async () => {
+  test('adds metadata to link nodes', async () => {
     const input = `
 [test site](${TEST_SITE_URL})
     `;
@@ -64,7 +65,7 @@ describe("remarkLinkMeta", () => {
     expect(html).toContain(`thumbnailUrl="${TEST_SITE_THUMBNAIL_URL}"`);
   });
 
-  test("does not add metadata to inline link nodes when inline option is false", async () => {
+  test('does not add metadata to inline link nodes when inline option is false', async () => {
     const input = `
 This is an [test site](${TEST_SITE_URL})
     `;
@@ -78,7 +79,7 @@ This is an [test site](${TEST_SITE_URL})
     expect(html).not.toContain(`thumbnailUrl="${TEST_SITE_THUMBNAIL_URL}"`);
   });
 
-  test("adds metadata to inline link nodes when inline option is true", async () => {
+  test('adds metadata to inline link nodes when inline option is true', async () => {
     const input = `
 This is an [test site](${TEST_SITE_URL})
       `;
