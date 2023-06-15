@@ -1,3 +1,3 @@
-import { remarkImageSize } from "./remark-image-size";
+import { remarkImageSize } from './remark-image-size';
 
 export default remarkImageSize;
