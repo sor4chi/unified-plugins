@@ -1,5 +1,11 @@
 # remark-image-size
 
+## 0.0.2
+
+### Patch Changes
+
+- [`c038a53`](https://github.com/sor4chi/unified-plugins/commit/c038a534728bed538a765b7c5b58664609d9ec01) Thanks [@sor4chi](https://github.com/sor4chi)! - Update the way to export
+
 ## 0.0.1
 
 ### Patch Changes
