@@ -1,0 +1,15 @@
+{
+  "name": "remark-image-size-example",
+  "private": true,
+  "scripts": {
+    "build": "tsc src/index.ts --outDir dist"
+  },
+  "dependencies": {
+    "rehype-stringify": "^9.0.3",
+    "remark-image-size": "workspace:^",
+    "remark-parse": "^10.0.2",
+    "remark-rehype": "^10.1.0",
+    "typescript": "^5.1.3",
+    "unified": "^10.1.2"
+  }
+}
