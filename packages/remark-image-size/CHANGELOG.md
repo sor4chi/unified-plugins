@@ -1,5 +1,11 @@
 # remark-image-size
 
+## 0.0.3
+
+### Patch Changes
+
+- [`c29cf0a`](https://github.com/sor4chi/unified-plugins/commit/c29cf0a05a9450b1cb1bf8a7f3fd0301418eb201) Thanks [@sor4chi](https://github.com/sor4chi)! - Update the way to build, change target to ES2015
+
 ## 0.0.2
 
 ### Patch Changes
