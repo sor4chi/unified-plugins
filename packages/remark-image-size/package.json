@@ -31,11 +31,7 @@
     "dist",
     "CHANGELOG.md"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/remark-image-size.es.js",
-      "require": "./dist/remark-image-size.umd.js",
-      "types": "./dist/index.d.ts"
-    }
-  }
+  "main": "./dist/remark-image-size.umd.js",
+  "module": "./dist/remark-image-size.es.js",
+  "types": "./dist/index.d.ts"
 }
