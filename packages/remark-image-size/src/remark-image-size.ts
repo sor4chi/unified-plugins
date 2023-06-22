@@ -1,4 +1,5 @@
-import probe from 'probe-image-size';
+import fetch from 'node-fetch';
+import { getPlaiceholder } from 'plaiceholder';
 import { Plugin, Transformer } from 'unified';
 import { Node, Parent } from 'unist';
 import { visit } from 'unist-util-visit';
@@ -12,7 +13,11 @@ export const remarkImageSize: Plugin = (): Transformer => {
       const { url } = node;
       if (url) {
         fetchers.push(async () => {
-          const { width, height } = await probe(url);
+          const buffer = await fetch(url).then((res) => res.arrayBuffer());
+          const {
+            metadata: { width, height },
+          } = await getPlaiceholder(Buffer.from(buffer));
+
           node.data = {
             hProperties: {
               src: url,
