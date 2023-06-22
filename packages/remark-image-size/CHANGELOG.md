@@ -1,5 +1,11 @@
 # remark-image-size
 
+## 0.1.1
+
+### Patch Changes
+
+- [`7af00f3`](https://github.com/sor4chi/unified-plugins/commit/7af00f379619c01b2b8fde16f78d9d7b0ecb52ed) Thanks [@sor4chi](https://github.com/sor4chi)! - Changed import method for fetch
+
 ## 0.1.0
 
 ### Minor Changes
