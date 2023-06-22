@@ -1,10 +1,12 @@
-import fetch from 'node-fetch';
 import { getPlaiceholder } from 'plaiceholder';
 import { Plugin, Transformer } from 'unified';
 import { Node, Parent } from 'unist';
 import { visit } from 'unist-util-visit';
 
 import type { Image } from 'mdast';
+
+const fetch = (...args: Parameters<typeof import('node-fetch')['default']>) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 export const remarkImageSize: Plugin = (): Transformer => {
   return async (tree: Node) => {
