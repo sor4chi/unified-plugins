@@ -1,5 +1,11 @@
 # remark-image-size
 
+## 0.1.2
+
+### Patch Changes
+
+- [`03c08c7`](https://github.com/sor4chi/unified-plugins/commit/03c08c738818bad60d2f73c95585eab81e39bf45) Thanks [@sor4chi](https://github.com/sor4chi)! - Switch to es module
+
 ## 0.1.1
 
 ### Patch Changes
