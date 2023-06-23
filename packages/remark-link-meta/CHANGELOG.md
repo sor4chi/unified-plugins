@@ -1,5 +1,11 @@
 # remark-link-meta
 
+## 0.0.3
+
+### Patch Changes
+
+- [#15](https://github.com/sor4chi/unified-plugins/pull/15) [`6bcc2f3`](https://github.com/sor4chi/unified-plugins/commit/6bcc2f3d08152fecaad07f18b501dfb23083b12c) Thanks [@sor4chi](https://github.com/sor4chi)! - Switch the target of build
+
 ## 0.0.2
 
 ### Patch Changes
