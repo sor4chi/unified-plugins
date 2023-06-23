@@ -1,5 +1,11 @@
 # remark-link-meta
 
+## 0.0.5
+
+### Patch Changes
+
+- [`5aa6ea8`](https://github.com/sor4chi/unified-plugins/commit/5aa6ea8b50edfd67bea54412ead05a9432dbcb5e) Thanks [@sor4chi](https://github.com/sor4chi)! - Resolve relative image path
+
 ## 0.0.4
 
 ### Patch Changes
