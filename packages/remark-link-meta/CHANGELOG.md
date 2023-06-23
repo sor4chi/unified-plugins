@@ -1,5 +1,13 @@
 # remark-link-meta
 
+## 0.0.4
+
+### Patch Changes
+
+- [#17](https://github.com/sor4chi/unified-plugins/pull/17) [`4d19705`](https://github.com/sor4chi/unified-plugins/commit/4d197054dab38ed61d181566b4d447daf4f8ee4d) Thanks [@sor4chi](https://github.com/sor4chi)! - Cache fetch reponses for performance
+
+- [#19](https://github.com/sor4chi/unified-plugins/pull/19) [`90f9ebe`](https://github.com/sor4chi/unified-plugins/commit/90f9ebec6d58f5fcc4b546882dbb549a6b059635) Thanks [@sor4chi](https://github.com/sor4chi)! - Resolve relative image url
+
 ## 0.0.3
 
 ### Patch Changes
