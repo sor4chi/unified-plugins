@@ -14,6 +14,9 @@ import { LinkMeta, RemarkLinkMetaOptions } from '.';
 
 import type { Link } from 'mdast';
 
+const fetch = (...args: Parameters<typeof import('node-fetch')['default']>) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
 const getOrigin = (url: string): string => {
   const { origin } = new URL(url);
   return origin;
