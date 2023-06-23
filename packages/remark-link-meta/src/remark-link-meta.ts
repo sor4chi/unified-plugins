@@ -14,6 +14,11 @@ import { LinkMeta, RemarkLinkMetaOptions } from '.';
 
 import type { Link } from 'mdast';
 
+const getOrigin = (url: string): string => {
+  const { origin } = new URL(url);
+  return origin;
+};
+
 const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
   const res = await fetch(url);
   const html = await res.text();
@@ -26,14 +31,16 @@ const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
 
   const iconUrl = getIconUrlFromElement(doc);
   if (iconUrl) {
-    meta.iconUrl = iconUrl.startsWith('http') ? iconUrl : `${url}${iconUrl}`;
+    meta.iconUrl = iconUrl.startsWith('http')
+      ? iconUrl
+      : getOrigin(url) + iconUrl;
   }
 
   const thumbnailUrl = getThumbnailUrlFromElement(doc);
   if (thumbnailUrl) {
     meta.thumbnailUrl = thumbnailUrl.startsWith('http')
       ? thumbnailUrl
-      : `${url}${thumbnailUrl}`;
+      : getOrigin(url) + thumbnailUrl;
   }
 
   return meta;
