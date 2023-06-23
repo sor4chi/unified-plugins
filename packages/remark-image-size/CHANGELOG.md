@@ -1,5 +1,11 @@
 # remark-image-size
 
+## 0.1.3
+
+### Patch Changes
+
+- [`2a9670d`](https://github.com/sor4chi/unified-plugins/commit/2a9670dc348f99cc8f53b0a7d3cf48feaa12cba8) Thanks [@sor4chi](https://github.com/sor4chi)! - Image size fetching optimization
+
 ## 0.1.2
 
 ### Patch Changes
