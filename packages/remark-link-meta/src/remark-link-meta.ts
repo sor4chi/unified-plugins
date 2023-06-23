@@ -30,6 +30,8 @@ const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
   };
 };
 
+const cache = new Map<string, Partial<LinkMeta>>();
+
 export const remarkLinkMeta: Plugin = (
   options: RemarkLinkMetaOptions = {},
 ): Transformer => {
@@ -46,7 +48,11 @@ export const remarkLinkMeta: Plugin = (
       const { url } = node;
       if (url) {
         fetchers.push(async () => {
-          const meta = await fetchMeta(url);
+          let meta = cache.get(url);
+          if (!meta) {
+            meta = await fetchMeta(url);
+            cache.set(url, meta);
+          }
           node.data = {
             hProperties: {
               href: url,
