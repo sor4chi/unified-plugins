@@ -14,20 +14,29 @@ import { LinkMeta, RemarkLinkMetaOptions } from '.';
 
 import type { Link } from 'mdast';
 
-const fetch = (...args: Parameters<typeof import('node-fetch')['default']>) =>
-  import('node-fetch').then(({ default: fetch }) => fetch(...args));
-
 const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
   const res = await fetch(url);
   const html = await res.text();
   const doc = parse(html);
 
-  return {
+  const meta: Partial<LinkMeta> = {
     title: getTitleFromElement(doc),
     description: getDescriptionFromElement(doc),
-    iconUrl: getIconUrlFromElement(doc),
-    thumbnailUrl: getThumbnailUrlFromElement(doc),
   };
+
+  const iconUrl = getIconUrlFromElement(doc);
+  if (iconUrl) {
+    meta.iconUrl = iconUrl.startsWith('http') ? iconUrl : `${url}${iconUrl}`;
+  }
+
+  const thumbnailUrl = getThumbnailUrlFromElement(doc);
+  if (thumbnailUrl) {
+    meta.thumbnailUrl = thumbnailUrl.startsWith('http')
+      ? thumbnailUrl
+      : `${url}${thumbnailUrl}`;
+  }
+
+  return meta;
 };
 
 const cache = new Map<string, Partial<LinkMeta>>();
