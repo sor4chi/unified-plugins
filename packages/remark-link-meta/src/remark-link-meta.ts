@@ -14,6 +14,9 @@ import { LinkMeta, RemarkLinkMetaOptions } from '.';
 
 import type { Link } from 'mdast';
 
+const fetch = (...args: Parameters<typeof import('node-fetch')['default']>) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+
 const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
   const res = await fetch(url);
   const html = await res.text();
