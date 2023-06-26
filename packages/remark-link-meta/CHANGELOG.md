@@ -1,5 +1,11 @@
 # remark-link-meta
 
+## 0.0.6
+
+### Patch Changes
+
+- [`1112de6`](https://github.com/sor4chi/unified-plugins/commit/1112de601df1e1bfc3635dff35d6cef59d51de4d) Thanks [@sor4chi](https://github.com/sor4chi)! - Add Polyfill fetch using node-fetch
+
 ## 0.0.5
 
 ### Patch Changes
