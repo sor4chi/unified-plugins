@@ -1,5 +1,11 @@
 # remark-link-meta
 
+## 0.0.7
+
+### Patch Changes
+
+- [`76c6078`](https://github.com/sor4chi/unified-plugins/commit/76c60780f53f7855ecb25eef61f66a882ca64247) Thanks [@sor4chi](https://github.com/sor4chi)! - Add Option Type support
+
 ## 0.0.6
 
 ### Patch Changes
