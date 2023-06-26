@@ -51,8 +51,8 @@ const fetchMeta = async (url: string): Promise<Partial<LinkMeta>> => {
 
 const cache = new Map<string, Partial<LinkMeta>>();
 
-export const remarkLinkMeta: Plugin = (
-  options: RemarkLinkMetaOptions = {},
+export const remarkLinkMeta: Plugin<[RemarkLinkMetaOptions?]> = (
+  options = {},
 ): Transformer => {
   return async (tree: Node) => {
     const fetchers: (() => Promise<void>)[] = [];
