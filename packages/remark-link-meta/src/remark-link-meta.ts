@@ -65,7 +65,7 @@ export const remarkLinkMeta: Plugin<[RemarkLinkMetaOptions?]> = (
       )
         return;
       const { url } = node;
-      if (url) {
+      if (url && url.startsWith('http')) {
         fetchers.push(async () => {
           let meta = cache.get(url);
           if (!meta) {
