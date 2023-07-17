@@ -1,5 +1,11 @@
 # remark-link-meta
 
+## 0.0.8
+
+### Patch Changes
+
+- [#24](https://github.com/sor4chi/unified-plugins/pull/24) [`22abb11`](https://github.com/sor4chi/unified-plugins/commit/22abb11e55e7c3694b2195e136ef794e003a06ae) Thanks [@sor4chi](https://github.com/sor4chi)! - Supress to fetch internal link
+
 ## 0.0.7
 
 ### Patch Changes
